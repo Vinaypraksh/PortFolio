@@ -1,0 +1,80 @@
+<html>
+<head>
+  <title>Match the smiles</title>
+  <style>
+div {
+  width: 500px;
+  height: 500px;
+  position: absolute;
+}
+
+#rightside {
+  border-left: 1px solid #1e1e1e;
+  left: 500px;
+}
+img {
+  position: absolute;
+}
+</style></head>
+<body >
+<h1>Matching Game</h1>
+  <p>Click on the extra smiling face on the left</p>
+
+  <div id="leftside"></div>
+  <div id="rightside"></div>
+  <script>
+var numberOfFaces = 5;
+function generateFaces() {
+
+  var theLeftSide = document.getElementById("leftside");
+  var theRightSide = document.getElementById("rightside");
+  var smileyFace = "http://home.cse.ust.hk/~rossiter/mooc/matching_game/smile.png";
+
+  for (var i = 0; i < numberOfFaces; i++) {
+    var position_x = Math.floor((Math.random() * 400) + 1);
+    var position_y = Math.floor((Math.random() * 400) + 1);
+    var img = document.createElement("img");
+    img.setAttribute("src", smileyFace);
+    img.style.top = position_y + "px";
+    img.style.left = position_x + "px";
+    theLeftSide.appendChild(img);
+  }
+
+  var leftSideImages = theLeftSide.cloneNode(true);
+  leftSideImages.removeChild(leftSideImages.lastChild);
+  theRightSide.appendChild(leftSideImages);
+
+  var theBody =
+    document.getElementsByTagName("body")[0];
+
+  theLeftSide.lastChild.onclick =
+    function nextLevel(event) {
+      event.stopPropagation();
+      numberOfFaces += 5;
+      while (theLeftSide.firstChild) {
+        theLeftSide.removeChild(theLeftSide.firstChild);
+      }
+      while (theRightSide.firstChild) {
+        theRightSide.removeChild(theRightSide.firstChild);
+      }
+      generateFaces();
+    };
+
+  theBody.onclick = function gameOver() {
+    alert("Game Over");
+    theBody.onclick = null;
+    theLeftSide.lastChild.onclick - null;
+    while (theLeftSide.firstChild) {
+      theLeftSide.removeChild(theLeftSide.firstChild);
+    }
+    while (theRightSide.firstChild) {
+      theRightSide.removeChild(theRightSide.firstChild);
+    }
+    numberOfFaces = 5;
+    generateFaces();
+  }
+
+}
+
+generateFaces();</script>
+</body></html>

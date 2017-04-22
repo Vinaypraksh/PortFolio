@@ -1,0 +1,191 @@
+<html>
+
+<head><style>
+body {
+  overflow: hidden;
+  height: 100vh;
+  perspective: 20em;
+  background: #000;
+  color: darkkhaki;
+}
+
+div, :before, :after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-style: preserve-3d;
+}
+
+.a3d {
+  animation: r 45s linear infinite;
+}
+
+@keyframes r {
+  to {
+    transform: rotateY(1turn);
+  }
+}
+.switch {
+  animation: sw 15s steps(1) infinite;
+}
+
+@keyframes sw {
+  0% {
+    transform: rotateY(0deg) rotateX(63.43495deg);
+  }
+  20% {
+    transform: rotateY(72deg) rotateX(63.43495deg);
+  }
+  40% {
+    transform: rotateY(144deg) rotateX(63.43495deg);
+  }
+  60% {
+    transform: rotateY(216deg) rotateX(63.43495deg);
+  }
+  80% {
+    transform: rotateY(288deg) rotateX(63.43495deg);
+  }
+}
+.s3d {
+  animation: rc 3s cubic-bezier(0.68, -1.56, 0.26, 2.55) infinite;
+}
+.s3d:nth-child(1) {
+  animation-direction: reverse;
+}
+.s3d:nth-child(1) .s3gon:after {
+  color: #e3a06c;
+}
+.s3d:nth-child(1) .s3gon:nth-child(2n):after {
+  color: #b9586b;
+}
+.s3d:nth-child(1) .s3gon:nth-child(1) {
+  transform: rotateY(0deg) rotateX(-10.81232deg) translateZ(8.50651em);
+}
+.s3d:nth-child(1) .s3gon:nth-child(2) {
+  transform: rotateY(36deg) rotate(0.5turn) rotateX(-10.81232deg) translateZ(8.50651em);
+}
+.s3d:nth-child(1) .s3gon:nth-child(3) {
+  transform: rotateY(72deg) rotateX(-10.81232deg) translateZ(8.50651em);
+}
+.s3d:nth-child(1) .s3gon:nth-child(4) {
+  transform: rotateY(108deg) rotate(0.5turn) rotateX(-10.81232deg) translateZ(8.50651em);
+}
+.s3d:nth-child(1) .s3gon:nth-child(5) {
+  transform: rotateY(144deg) rotateX(-10.81232deg) translateZ(8.50651em);
+}
+.s3d:nth-child(1) .s3gon:nth-child(6) {
+  transform: rotateY(180deg) rotate(0.5turn) rotateX(-10.81232deg) translateZ(8.50651em);
+}
+.s3d:nth-child(1) .s3gon:nth-child(7) {
+  transform: rotateY(216deg) rotateX(-10.81232deg) translateZ(8.50651em);
+}
+.s3d:nth-child(1) .s3gon:nth-child(8) {
+  transform: rotateY(252deg) rotate(0.5turn) rotateX(-10.81232deg) translateZ(8.50651em);
+}
+.s3d:nth-child(1) .s3gon:nth-child(9) {
+  transform: rotateY(288deg) rotateX(-10.81232deg) translateZ(8.50651em);
+}
+.s3d:nth-child(1) .s3gon:nth-child(10) {
+  transform: rotateY(324deg) rotate(0.5turn) rotateX(-10.81232deg) translateZ(8.50651em);
+}
+.s3d:nth-child(2) .s3gon:after {
+  color: #d2c9a8;
+}
+.s3d:nth-child(2) .s3gon:nth-child(1) {
+  transform: rotateY(36deg) rotateX(52.62263deg) translateZ(8.50651em);
+}
+.s3d:nth-child(2) .s3gon:nth-child(2) {
+  transform: rotateY(72deg) rotate(0.5turn) rotateX(52.62263deg) translateZ(8.50651em);
+}
+.s3d:nth-child(2) .s3gon:nth-child(3) {
+  transform: rotateY(108deg) rotateX(52.62263deg) translateZ(8.50651em);
+}
+.s3d:nth-child(2) .s3gon:nth-child(4) {
+  transform: rotateY(144deg) rotate(0.5turn) rotateX(52.62263deg) translateZ(8.50651em);
+}
+.s3d:nth-child(2) .s3gon:nth-child(5) {
+  transform: rotateY(180deg) rotateX(52.62263deg) translateZ(8.50651em);
+}
+.s3d:nth-child(2) .s3gon:nth-child(6) {
+  transform: rotateY(216deg) rotate(0.5turn) rotateX(52.62263deg) translateZ(8.50651em);
+}
+.s3d:nth-child(2) .s3gon:nth-child(7) {
+  transform: rotateY(252deg) rotateX(52.62263deg) translateZ(8.50651em);
+}
+.s3d:nth-child(2) .s3gon:nth-child(8) {
+  transform: rotateY(288deg) rotate(0.5turn) rotateX(52.62263deg) translateZ(8.50651em);
+}
+.s3d:nth-child(2) .s3gon:nth-child(9) {
+  transform: rotateY(324deg) rotateX(52.62263deg) translateZ(8.50651em);
+}
+.s3d:nth-child(2) .s3gon:nth-child(10) {
+  transform: rotateY(360deg) rotate(0.5turn) rotateX(52.62263deg) translateZ(8.50651em);
+}
+
+@keyframes rc {
+  0%, 25% {
+    transform: none;
+  }
+  75%, 100% {
+    transform: rotateY(72deg);
+  }
+}
+.s3gon {
+  opacity: .75;
+}
+.s3gon:before, .s3gon:after {
+  margin: -5.7735em;
+  width: 11.54701em;
+  height: 11.54701em;
+  background: currentColor;
+  -webkit-clip-path: url(#rp3);
+  clip-path: url(#rp3);
+  content: '';
+}
+.s3gon:after {
+  opacity: .001;
+  animation: o 3s ease-in-out infinite;
+}
+
+@keyframes o {
+  25%, 75% {
+    opacity: .999;
+  }
+}
+
+</style>
+
+<body>
+<svg>
+  <clipPath id="rp3" clipPathUnits="objectBoundingBox">
+    <path d="M0.4566987298107781 0.1A0.05 0.05 0 0 1 0.5433012701892219 0.1L0.8680607966083864 0.6625A0.05 0.05 0 0 1 0.8247595264191645 0.7375L0.17524047358083558 0.7375000000000002A0.05 0.05 0 0 1 0.1319392033916136 0.6625000000000001z" fill="red"></path>
+  </clipPath>
+</svg>
+<div class="a3d">
+  <div class="switch">
+    <div class="s3d">
+      <div class="s2d s3gon"></div>
+      <div class="s2d s3gon"></div>
+      <div class="s2d s3gon"></div>
+      <div class="s2d s3gon"></div>
+      <div class="s2d s3gon"></div>
+      <div class="s2d s3gon"></div>
+      <div class="s2d s3gon"></div>
+      <div class="s2d s3gon"></div>
+      <div class="s2d s3gon"></div>
+      <div class="s2d s3gon"></div>
+    </div>
+    <div class="s3d">
+      <div class="s2d s3gon"></div>
+      <div class="s2d s3gon"></div>
+      <div class="s2d s3gon"></div>
+      <div class="s2d s3gon"></div>
+      <div class="s2d s3gon"></div>
+      <div class="s2d s3gon"></div>
+      <div class="s2d s3gon"></div>
+      <div class="s2d s3gon"></div>
+      <div class="s2d s3gon"></div>
+      <div class="s2d s3gon"></div>
+    </div>
+  </div>
+</div></body></html>
